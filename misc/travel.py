@@ -6,7 +6,7 @@ from collections import defaultdict
 from datetime import datetime
 
 # Read passed argument
-input_path = '/home/t7/dev/temp/travel_2016_w2-5.csv'
+input_path = '/home/t7/Downloads/travel_2016_w2-5.csv'
 if len(sys.argv) > 1:
     input_path = sys.argv[1]
     sys.argv = [sys.argv[0]]
@@ -46,7 +46,7 @@ for k, r in enumerate(sorted(results)):
     x = r.replace(' 1.', '|').replace(' 2.', '|')
     datum = datetime.strftime(datetime.strptime(x.split('|')[0],
                                                 '%Y-%m-%d').date(),
-                              '%d-%m-%Y')
+                              '%d/%m/%Y')
     trip = x.split('|')[1]
     datums.append(datum)
     costs.append(results[r])
@@ -59,4 +59,4 @@ for k,v in enumerate(datums):
 for k,v in enumerate(trips):
     print(v)
 for k,v in enumerate(costs):
-    print(str(v).replace('.',','))
+    print(str(v))
